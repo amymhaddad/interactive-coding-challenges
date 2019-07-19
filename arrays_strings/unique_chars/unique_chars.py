@@ -14,7 +14,6 @@ class UniqueChars(object):
                     repeats += letter
             return True
 
-
 # Second way: set()
 class UniqueChars(object):
     def has_unique_chars(self, string):
@@ -51,7 +50,6 @@ class UniqueChars(object):
             if string[i] == next_letter:
                 return False
         return True
-
 
 # Fifth way: code credit for this last solution: Donne Martin
 class UniqueCharsInPlace(object):
