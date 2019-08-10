@@ -1,14 +1,16 @@
-"""A template to determine if a number is a power of 2"""
+def is_power_of_two(val):
+    """Return a boolean to determine if a valid number is a power of two"""
+    if is_valid(val):
+        if val == 1 or val % 2 == 0:
+            return True
+    return False
 
 
-class Solution(object):
-    def is_power_of_two(self, val):
-        if val <= 0 or val == None:
-            return False
+def is_valid(val):
+    """Determine if a number is valid"""
+    if val is None:
+        raise TypeError("The value can't be None")
+    elif not isinstance(val, int) or val == 0:
+        return False
 
-        return True if val % 2 == 0 else False
-
-
-s = Solution()
-
-print(s.is_power_of_two(1))
+    return True
