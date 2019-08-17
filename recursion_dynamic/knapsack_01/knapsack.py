@@ -18,16 +18,9 @@ items = [['a', 2, 2], ['b', 4, 2], ['c', 6, 4], ['d', 9, 5]]
 
 
 for i, row in enumerate(items):
-    print(row[i])
-
-#why is this out of range and the example below works just fine?
-
-arr = [[11, 2, 4], [4, 5, 6], [10, 8, -12]]
-
-d1 = 0
-for i, row in enumerate(arr):
-    d1 += row[i]
-    print(row[i])
+    # print(row)
+    print(row[-1])
+#OR print row[2]
 
 
 
