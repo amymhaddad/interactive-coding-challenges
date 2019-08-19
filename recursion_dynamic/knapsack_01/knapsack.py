@@ -14,16 +14,23 @@
 
 
 total_weight = 8
-items = [['a', 2, 2], ['b', 4, 2], ['c', 6, 4], ['d', 9, 5]]
+# items = [['a', 2, 2], ['b', 4, 2], ['c', 6, 4], ['d', 9, 5]]
+
+added_weight = []
+
+items = [2, 2, 4, 5]
+
+for i, item in enumerate(items):
+    for j, item in enumerate(items):
+        if items[i] + items[j] <= total_weight:
+            added_weight.append(items[i] + items[j])
+    max_wt = max(added_weight)
+    if items[i] + items[j] == max_wt:
+        print(items[i], items[j])
 
 
-for i, row in enumerate(items):
-    # print(row)
-    print(row[-1])
-#OR print row[2]
 
-
-
+# print(max(added_weight))
 
 # def knapsack_items(items):
 
