@@ -17,8 +17,9 @@ total_weight = 8
 # items = [['a', 2, 2], ['b', 4, 2], ['c', 6, 4], ['d', 9, 5]]
 
 added_weight = []
-
 items = [2, 2, 4, 5]
+
+items_to_extract = []
 
 for i, item in enumerate(items):
     for j, item in enumerate(items):
@@ -26,20 +27,19 @@ for i, item in enumerate(items):
             added_weight.append(items[i] + items[j])
     max_wt = max(added_weight)
     if items[i] + items[j] == max_wt:
-        print(items[i], items[j])
+        items_to_extract.append(items[i])
+        items_to_extract.append(items[j])
+
+# print(items_to_extract)
+
+# x = [2, 5, 2, 5]
+#I get the correct item weights but I need another conditional so I get the last 2 numbers in the returned sequence based on the values they return. I want the largest value.
+
+x = [['a', 2, 2], ['b', 4, 2], ['c', 6, 4], ['d', 9, 5]]
+
+# def find_item(x):
 
 
-
-# print(max(added_weight))
-
-# def knapsack_items(items):
-
-#     knapsack_weight = 0
-
-#     if knapsack_weight >= total_weight:
-#         return 0
-    
-#     else:
 
 
     
