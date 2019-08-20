@@ -6,51 +6,22 @@ total_weight = 8
 added_weight = []
 weights = [2, 2, 4, 5]
 values = [2, 4, 6, 9]
-item_names = ['a', 'b', 'c', 'd']
 
-totals = list(zip(item_names, values, weights))
+def max_weight(weights):
+    """Given a total knapsack weight, get the indexes for the items that don't exceed the total weight"""
+    added_weight = []
+    for i, item in enumerate(weights):
+        for j, item in enumerate(weights):
+            if weights[i] + weights[j] <= total_weight:
+                indexes = (i, j)
+                added_weight.append(indexes)
+    return max(added_weight)
 
-for i, item in enumerate(weights):
-    for j, item in enumerate(weights):
-        if weights[i] + weights[j] <= total_weight:
-            indexes = (i, j)
-            added_weight.append(indexes)
-    max_wt = max(added_weight)
-#     if items[i] + items[j] == max_wt:
-#         items_to_extract.append(items[i])
-#         items_to_extract.append(items[j])
+def total_value(values):
+    """Return the total item value for the maximum items the knapsack can hold based on weight"""
 
-max_value = 0
-for value in max_wt:
-    max_value += values[value]
-print(max_value)
-    
-
-
-
-
-
-
-# item_names = ['a', 'b', 'c', 'd']
-# values = [2, 4, 6, 9]
-# weights = [2, 2, 4, 5]
-
-# for item, val, wt in list(zip(item_name, value, weight)):
-#     print(item)
-
-# totals = list(zip(item_names, values, weights))
-
-# knapsack_indexes = []
-# for i, weight in enumerate(weights):
-#     for j, weight in enumerate(weights):
-    
-#         if weights[i] + weights[j] <= total_weight:
-#             indexes = (i, j)
-#     knapsack_indexes.append(indexes)
-#             # print(weights[i], weights[j])
-
-# # print(max(knapsack_wt))
-# print(knapsack_indexes)
-
-# x = sorted(knapsack_indexes, key=lambda x: x[0], reverse=True)
-# print(x)
+    item_indexes = max_weight(weights)
+    max_value = 0
+    for value in item_indexes:
+        max_value += values[value]
+    return max_value
