@@ -1,9 +1,7 @@
 
 
 total_weight = 8
-# items = [['a', 2, 2], ['b', 4, 2], ['c', 6, 4], ['d', 9, 5]]
 
-added_weight = []
 weights = [2, 2, 4, 5]
 values = [2, 4, 6, 9]
 
@@ -25,3 +23,21 @@ def total_value(values):
     for value in item_indexes:
         max_value += values[value]
     return max_value
+
+
+#try using range 
+
+def recur_wt(weights):
+    if weights == []:
+        return 0
+    
+    else:
+        index = 0
+        added_weight = []
+        if weights[index] + weights[index+1] <= total_weight:
+            indexes = (index, index+1)
+            added_weight.append(indexes)
+    
+    return added_weight + recur_wt(weights)
+
+print(recur_wt(weights))
