@@ -4,13 +4,15 @@ total_weight = 8
 # items = [['a', 2, 2], ['b', 4, 2], ['c', 6, 4], ['d', 9, 5]]
 
 added_weight = []
-items = [2, 2, 4, 5]
+weights = [2, 2, 4, 5]
+values = [2, 4, 6, 9]
+item_names = ['a', 'b', 'c', 'd']
 
-# items_to_extract = []
+totals = list(zip(item_names, values, weights))
 
-for i, item in enumerate(items):
-    for j, item in enumerate(items):
-        if items[i] + items[j] <= total_weight:
+for i, item in enumerate(weights):
+    for j, item in enumerate(weights):
+        if weights[i] + weights[j] <= total_weight:
             indexes = (i, j)
             added_weight.append(indexes)
     max_wt = max(added_weight)
@@ -18,8 +20,14 @@ for i, item in enumerate(items):
 #         items_to_extract.append(items[i])
 #         items_to_extract.append(items[j])
 
+max_value = 0
+for value in max_wt:
+    max_value += values[value]
+print(max_value)
+    
 
-print(max_wt)
+
+
 
 
 
