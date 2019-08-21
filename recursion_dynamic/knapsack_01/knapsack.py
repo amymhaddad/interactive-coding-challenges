@@ -1,11 +1,9 @@
-
-
 total_weight = 8
 
 weights = [2, 2, 4, 5]
 values = [2, 4, 6, 9]
 
-#Solution 1: use enumerate 
+# Solution 1: use enumerate
 def max_weight(weights):
     """Given a total knapsack weight, get the indexes for the items that don't exceed the total weight"""
     added_weight = []
@@ -15,6 +13,7 @@ def max_weight(weights):
                 indexes = (i, j)
                 added_weight.append(indexes)
     return max(added_weight)
+
 
 def total_value(values):
     """Return the total item value for the maximum items the knapsack can hold based on weight"""
@@ -26,7 +25,7 @@ def total_value(values):
     return max_value
 
 
-#Solution 2: use range()
+# Solution 2: use range()
 def max_weight(weights):
     added_weight = []
     for outer in range(len(weights)):
@@ -36,24 +35,9 @@ def max_weight(weights):
                 added_weight.append(indexes)
     return max(added_weight)
 
+
 def total_value(values):
     total_value = 0
     for index in max_weight(weights):
         total_value += values[index]
     return total_value
-
-
-# def recur_wt(weights):
-#     if weights == []:
-#         return 0
-    
-#     else:
-#         index = 0
-#         added_weight = []
-#         if weights[index] + weights[index+1] <= total_weight:
-#             indexes = (index, index+1)
-#             added_weight.append(indexes)
-    
-#     return added_weight + recur_wt(weights)
-
-# print(recur_wt(weights))
